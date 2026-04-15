@@ -38,17 +38,27 @@ export const Navbar = () => {
 
                 <div className="hidden md:flex gap-8 items-center">
                     <Link
-                        to="/inserts"
-                        className={`text-2xl font-headline italic tracking-tight transition-colors duration-300 ${location.pathname === '/inserts' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface/70 hover:text-primary'
+                        to="/"
+                        className={`text-2xl font-headline italic tracking-tight transition-colors duration-300 ${location.pathname === '/' && location.hash === '' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface/70 hover:text-primary'
                             }`}
                     >
                         Insert Gallery
                     </Link>
-                    <a href="#how-it-works" className=" text-2xl font-headline italic tracking-tight text-on-surface/70 hover:text-primary transition-colors duration-300">
-                        How it Works
+                    <a href="#the-process" className={`text-2xl font-headline italic tracking-tight transition-colors duration-300 ${location.hash === '#the-process' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface/70 hover:text-primary'
+                        }`}>
+                        The Process
                     </a>
-                    <a href="#about" className="text-2xl font-headline italic tracking-tight text-on-surface/70 hover:text-primary transition-colors duration-300">
-                        About Us
+                    <a href="#pricing" className={`text-2xl font-headline italic tracking-tight transition-colors duration-300 ${location.hash === '#pricing' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface/70 hover:text-primary'
+                        }`}>
+                        Pricing
+                    </a>
+                    <a href="#archives" className={`text-2xl font-headline italic tracking-tight transition-colors duration-300 ${location.hash === '#archives' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface/70 hover:text-primary'
+                        }`}>
+                        Archives
+                    </a>
+                    <a href="#ratings" className={`text-2xl font-headline italic tracking-tight transition-colors duration-300 ${location.hash === '#ratings' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface/70 hover:text-primary'
+                        }`}>
+                        Ratings
                     </a>
                 </div>
 

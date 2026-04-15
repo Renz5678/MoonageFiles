@@ -1,10 +1,19 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { MessageSquare, Edit3, CheckCircle, Package2, ArrowRight, Star, Sparkles, Clock, Send, Palette } from 'lucide-react';
+import { MessageSquare, Edit3, CheckCircle, Package2, ArrowRight, Star, Sparkles, Clock, Send, Palette, Mail } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Chatbox } from '../components/Chatbox';
 
 export const Inserts = () => {
+    const [isChatClicked, setIsChatClicked] = useState(false);
+    const sectionRef = useRef(null);
     return (
         <div className="pt-20 overflow-x-hidden">
+            {isChatClicked && <Chatbox isChatClicked={isChatClicked} setIsChatClicked={setIsChatClicked} />}
+
+            {!isChatClicked &&
+                <button className="z-[9999] w-28 h-28 fixed right-[4rem] bottom-[4rem] rounded-full bg-amber-50/70 border-solid border-8 border-primary flex justify-center items-center hover:scale-120 hover:transition-all duration-200" onClick={() => { setIsChatClicked(true); console.log("clicked") }}><Mail size={50} className='color-primary'></Mail>
+                </button>}
             {/* Hero Section */}
             <section className="relative min-h-[80vh] pt-20 pb-20 px-8 flex items-center overflow-hidden">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -14,9 +23,6 @@ export const Inserts = () => {
                         transition={{ duration: 0.8 }}
                         className="relative z-10"
                     >
-                        <div className="inline-block mb-4 px-4 py-1 bg-secondary-container/30 text-secondary text-sm font-label rounded-full">
-                            Spring 2024 Collection
-                        </div>
                         <h1 className="font-headline text-6xl md:text-8xl text-on-surface leading-[0.9] mb-8">
                             custom phone case <span className="italic text-primary">inserts</span>, made just for you
                         </h1>
@@ -27,7 +33,7 @@ export const Inserts = () => {
                             <button className="bg-primary text-on-primary px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:translate-y-[-2px] transition-all active:scale-95">
                                 order now
                             </button>
-                            <button className="text-tertiary font-script text-3xl px-6 py-4 flex items-center gap-2 hover:opacity-80 transition-opacity">
+                            <button className="text-tertiary font-script text-3xl px-6 py-4 flex items-center gap-2 hover:opacity-80 transition-opacity" onClick={() => sectionRef.current.scrollIntoView({ behavior: 'smooth' })}>
                                 see the vibe <ArrowRight size={28} />
                             </button>
                         </div>
@@ -103,7 +109,7 @@ export const Inserts = () => {
             </section>
 
             {/* Process */}
-            <section className="py-32 px-8 bg-surface">
+            <section id="the-process" className="py-32 px-8 bg-surface">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
                         <h2 className="font-headline text-5xl mb-4">the process</h2>
@@ -143,7 +149,7 @@ export const Inserts = () => {
             </section>
 
             {/* Pricing */}
-            <section className="py-24 bg-surface-container-high/30">
+            <section id="pricing" className="py-24 bg-surface-container-high/30">
                 <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="bg-surface p-4 rounded-3xl shadow-sm rotate-[-3deg]">
@@ -185,43 +191,21 @@ export const Inserts = () => {
             </section>
 
             {/* Archives */}
-            <section className="py-32 px-8 overflow-hidden">
+            <section id="archives" ref={sectionRef} className="py-32 px-8 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-20 flex justify-between items-end">
-                        <h2 className="font-headline text-6xl italic">Past Favorites</h2>
+                        <h2 className="font-headline text-6xl italic">Past Inserts</h2>
                         <p className="font-script text-2xl text-secondary">"the archives"</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                        <div className="md:col-span-2 md:row-span-2 bg-surface-container-low p-6 rounded-[3rem] relative rotate-[-1deg] shadow-sm">
-                            <img
-                                className="w-full h-[700px] object-cover rounded-[2rem]"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy7lZkdGNG5MNgqyziU7TiytTLu1ODKc9l5k02qosQpSutSNG-Bt3CqK_9Rq4h-eSUKSo6Xk1eJs1s216i0m1rRbPwVH4nct1RyFIS2CFZV3AYWvlDkoO-kafvpgPzIUbzYBNSgz4T0LXrH-kg48jv1dm3mzsT00KY4NUXPbl2faWrbCLShe1MAIEC6qdpp2FIfuOclDxwZgFs5-gT8j90LkGETrYjBMXVTU6Zu6C5F3jApIxf76gDtakvTebDDkvOJGaTH6x_wuGg"
-                                referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute top-12 right-12 bg-secondary-container/90 text-on-secondary-container px-6 py-2 rounded-full text-sm font-label shadow-sm">Best Seller</div>
-                            <div className="absolute -bottom-6 left-12 font-script text-2xl bg-surface px-6 py-3 shadow-md rounded-xl rotate-[-2deg]">summer of '23 vibes</div>
-                        </div>
-                        <div className="bg-surface-container-low p-4 rounded-3xl rotate-3 shadow-sm">
-                            <img
-                                className="w-full aspect-square object-cover rounded-2xl"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGQ0i5Zo7Rq5HYKZ9suYLgWnC49y0BfA6RSGCBbqzyxncbCQv9oInKKCXi7ze0wDOUFYEjn9E1QPGpt4osI7kvjs2tRMO5ps-Qjf4xZYCd0Ndw5Io9r5fdmIkwrLuXtUqa6lT6CtWi9sWM1m_e_6BRaH5DfSOccia_M8_Fqpcg1a5YadM9OwXawpPEnTbH_nWqW0CciwiyqWnaI7jKWiLxzY54-jNUctZtL6Z5MvT5g7LRQRSmE5umELwdDkDK_d5Dyf7qJfltFci3"
-                                referrerPolicy="no-referrer"
-                            />
-                        </div>
-                        <div className="bg-surface-container-low p-4 rounded-3xl -rotate-4 shadow-sm">
-                            <img
-                                className="w-full aspect-square object-cover rounded-2xl"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3YgZjfi4iQfETBIvrG4OSAl-N3gTiDh0A6DlgH0WUtRbQnzzmngmekVmHbLm4-zwunC2BaakGtnTc9EkGpweBzF8pysvWKLG2hTuL-Ry35CT7AFQARUCqUdJ76PwrJoUOCRw4Sj4pcMD5we14iFqHf_Kd9M4NJKMcdjg3OD6DE8WkPbGX2QcqK-OwxPEIZ8QYRNYTp5_3V0obt0lbhR-7AME2B9lN-I-9Z7_aIeCHqqfmkBLyOxo9YBn5-OztO9hNti_lx1PhCNMg"
-                                referrerPolicy="no-referrer"
-                            />
-                        </div>
-                        <div className="md:col-span-2 bg-surface-container-low p-6 rounded-[3rem] rotate-1 shadow-sm">
-                            <img
-                                className="w-full h-96 object-cover rounded-2xl"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU5Qe2U9sWayz0keE_nibJtQvP1KEtzjHBf8XjV8Ik0KnJxVT-dQAVsnP76mW3JbcdZLFY14-U9baFFHjcp78SbSAx5H7vmQkk5BgZLFk2frFeDxO-GovvsUJnZlAnTP_cYEHcz9vTg0x421xgTP0AGAWyxe2iyuwWfDeN6yzFgaI637zvOKCdRPjPBxgsJfH9FRaBhZu0YAgX4o1BLPBFV-qj2b9keyUh0T9PD6Yok1CTbNrCTDeMjxbJu0-mrTxo-d6_iDWCt9qn"
-                                referrerPolicy="no-referrer"
-                            />
-                        </div>
+                </div>
+            </section>
+
+            {/*Ratings*/}
+            <section id="ratings" className="py-24 bg-surface-container-high/30">
+                <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-10">
+                        <h2 className="font-headline text-6xl">Ratings</h2>
+
                     </div>
                 </div>
             </section>

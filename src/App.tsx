@@ -10,8 +10,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/inserts" element={<Inserts />} />
+          <Route path="/" element={<Inserts />} />
         </Route>
       </Routes>
     </Router>
