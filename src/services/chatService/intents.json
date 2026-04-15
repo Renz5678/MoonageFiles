@@ -1,0 +1,49 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello",
+                "hi",
+                "good day"
+            ],
+            "responses": [
+                "Hello there! Welcome to Moonage Files. What can I help you with today?"
+            ]
+        },
+        {
+            "tag": "prices",
+            "patterns": [
+                "price",
+                "prices",
+                "how much",
+                "magkano"
+            ],
+            "responses": [
+                "Our prices vary by design.\n - Php 100 for simple designs\n - Php 150+ for more complicated works.\n The price range will be based on the discretion of the creator"
+            ]
+        },
+        {
+            "tag": "time",
+            "patterns": [
+                "how long",
+                "duration",
+                "would it take"
+            ],
+            "responses": [
+                "Completion fo your orders will vary by the amount of orders that we are currently processing. However, expect it to be completed in around 3-5 days"
+            ]
+        },
+        {
+            "tag": "delivery",
+            "patterns": [
+                "delivery",
+                "receive",
+                "how would i get my order"
+            ],
+            "responses": [
+                "You can get your order via meet-up (only available for Gen. T. De Leon, Valenzuela City orders). We can also ship your order, but the customer shall shoulder the shipping fee"
+            ]
+        }
+    ]
+}
